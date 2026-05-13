@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Fetch Repositories
         run: |
-            gh repo list ${{ github.repository_owner }} --public --json name,description,url,stargazerCount,languages,updatedAt > repos.json
+            gh repo list ${{ github.repository_owner }} --public --json description,homepageUrl,id,labels,languages,name,nameWithOwner,openGraphImageUrl,owner,primaryLanguage,repositoryTopics,url,  > repos.json
         env:
             GH_TOKEN: ${{ github.token }}
           
