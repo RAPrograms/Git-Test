@@ -20,14 +20,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Create database
         run: |
             sqlite3 database.db < setup.sql
 
       - name: Fetch Repositories
         run: |
-            gh repo list ${{ github.repository_owner }} --limit 1000 --source --public --json description,homepageUrl,id,languages,description,repositoryTopics,name,openGraphImageUrl,primaryLanguage,repositoryTopics,url  > repos.json
+            gh repo list ${{ github.repository_owner }} --limit 1000 --source --public --json description,homepageUrl,id,languages,description,repositoryTopics,name,primaryLanguage,repositoryTopics,url  > repos.json
         env:
             GH_TOKEN: ${{ github.token }}
           
