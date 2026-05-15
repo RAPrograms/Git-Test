@@ -30,6 +30,9 @@ jobs:
             gh repo list ${{ github.repository_owner }} --limit 1000 --source --public --json description,homepageUrl,id,languages,description,repositoryTopics,name,primaryLanguage,repositoryTopics,url  > repos.json
         env:
             GH_TOKEN: ${{ github.token }}
+
+      - name: test
+        run: bun seed_db.ts
           
 
       - name: Upload artifact
