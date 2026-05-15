@@ -1,4 +1,4 @@
-import { Frameworks, Langauages, ProjectTypes, Stack, Technologies, Tools } from '../src/lib/enums';
+import { Frameworks, Langauages, ProjectTypes, Stack, Technologies, Tools } from './enums';
 
 import { readFile } from 'node:fs/promises';
 import { Database } from "bun:sqlite";
@@ -61,7 +61,7 @@ async function seedProjects(){
         return repos.length
     });
 
-    const json = await readFile('./db/repos.json', 'utf8').then((raw: string) => JSON.parse(raw));
+    const json = await readFile('./repos.json', 'utf8').then((raw: string) => JSON.parse(raw));
 
     insertRepos(json);
 }
