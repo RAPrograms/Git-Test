@@ -23,7 +23,7 @@ jobs:
 
       - name: Create database
         run: |
-            sqlite3 database.db < setup.sql
+            sqlite3 data.db < setup.sql
 
       - name: Fetch Repositories
         run: |
