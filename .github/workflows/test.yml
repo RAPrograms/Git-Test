@@ -25,7 +25,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Cache NPM dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v3 
         with:
           path: node_modules
           key: node-modules-${{ hashFiles('bun.lock') }}
