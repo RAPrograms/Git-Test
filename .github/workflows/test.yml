@@ -18,8 +18,25 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch repositories details
-        run: |
-          echo $(gh api repos/${{ github.repository_owner }}/Hangman/readme --jq '.content' | base64 --decode)
-        env:
-          GH_TOKEN: ${{ github.token }}
+
+      - name: Cache Node dependencies
+        uses: actions/cache@v3 
+        with:
+          path: data
+          key: hi
+
+      - name: Dir Create
+        run: makedir -p data
+
+      - name: Create Files
+        run: echo "" > ./data/$(($(ls | wc -l)+1)).txt
+
+      - name: output
+        run: ls ./data
+      
+      
+      #- name: Fetch repositories details
+      #  run: |
+      #    echo $(gh api repos/${{ github.repository_owner }}/Hangman/readme --jq '.content' | base64 --decode)
+      #  env:
+      #    GH_TOKEN: ${{ github.token }}
