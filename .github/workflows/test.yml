@@ -26,7 +26,7 @@ jobs:
           key: hi
 
       - name: Dir Create
-        run: makedir -p data
+        run: mkdir -p data
 
       - name: Create Files
         run: echo "" > ./data/$(($(ls | wc -l)+1)).txt
